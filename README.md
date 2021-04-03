@@ -36,7 +36,7 @@ I already had [Telegraf](https://github.com/influxdata/telegraf) and [Grafana](h
 
 Both the Telegraf config snippet and the Grafana dashboard (exported as JSON) are available in the `dashboard/` directory of this repo.  
 
-The end result:  
+The end result (the spike to 4000ppm is me breathing on the sensor to test it!):  
 ![Dashboard with CO2 data](assets/Dashboard.png)
 
 ## License
