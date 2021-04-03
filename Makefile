@@ -1,9 +1,11 @@
-IMAGE_NAME = joshkeegan/co2-sensor
-CONTAINER_NAME = co2-sensor
+IMAGE_NAME = joshkeegan/sensors
+CONTAINER_NAME = sensors
 
+# Args
+#	- params: optional. Additional params to pass to buildx
 .PHONY: build
 build:
-	docker build --pull -t $(IMAGE_NAME) .
+	docker buildx build --platform linux/amd64,linux/arm/v7,linux/arm64 --pull $(params) -t $(IMAGE_NAME) .
 
 .PHONY: run
 run: build
@@ -12,3 +14,7 @@ run: build
 .PHONY: stop
 stop:
 	docker stop $(CONTAINER_NAME)
+
+.PHONY: publish
+publish: params=--push
+publish: build
