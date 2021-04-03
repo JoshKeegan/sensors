@@ -1,7 +1,5 @@
 # Sensors
-Simple HTTP Server to expose sensors attached to a Raspberry Pi.
-
-Data is intended for consumption via telegraf.
+A hobby project to create a simple HTTP Server to expose sensors attached to a Raspberry Pi. This data then gets collected by Telegraf & made available by a dashboard in Grafana.
 
 Code is containerised & cross-compiled with buildx, and then deployed onto the raspberry pi with:
 ```bash
@@ -13,7 +11,7 @@ cd sensors/deploy
 ## Current sensors
  - MH-Z19C (CO2 sensor)
 
-## Calling
+## Fetching data
 HTTP GET to /sensors.  
 Returns JSON. Fields are:
 
@@ -29,3 +27,17 @@ Notes: tempC is of unknown accuracy. The MHZ19C sensor needs to know the tempera
  - Make your changes
  - Run `make publish` to build & publish new docker containers
  - On the Pi, run `./update.sh` from the `deploy` directory to deploy it
+
+## In action:
+This program runs on a Raspberry Pi in my study:  
+![Raspberry Pi with sensor attached](assets/RaspberryPiWithSensor.jpg)
+
+I already had [Telegraf](https://github.com/influxdata/telegraf) and [Grafana](https://github.com/grafana/grafana) running on a home server, using them for monitoring other systems, so having it also handle this is just a matter of updating the configuration...
+
+Both the Telegraf config snippet and the Grafana dashboard (exported as JSON) are available in the `dashboard/` directory of this repo.  
+
+The end result:  
+![Dashboard with CO2 data](assets/Dashboard.png)
+
+## License
+[MIT](LICENSE)
