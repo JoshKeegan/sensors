@@ -39,5 +39,9 @@ Both the Telegraf config snippet and the Grafana dashboard (exported as JSON) ar
 The end result (the spike to 4000ppm is me breathing on the sensor to test it!):  
 ![Dashboard with CO2 data](assets/Dashboard.png)
 
+## References
+ - [mh-z19 Python library](https://github.com/UedaTakeyuki/mh-z19) which is used to interact with the sensor
+ - [MH-Z19C data sheet](https://www.winsen-sensor.com/d/files/infrared-gas-sensor/mh-z19c-pins-type-co2-manual-ver1_0.pdf)
+
 ## License
 [MIT](LICENSE)
