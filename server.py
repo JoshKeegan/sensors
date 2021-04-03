@@ -10,7 +10,8 @@ class Sensors:
         co2Sensor = mh_z19.read_all(True)
 
         sensors = {
-            "co2": co2Sensor["co2"]
+            "co2": co2Sensor["co2"],
+            "tempC": co2Sensor["temperature"]
         }
 
         resp.media = sensors
