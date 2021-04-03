@@ -16,5 +16,12 @@ class Sensors:
 
         resp.media = sensors
 
+# Turn off Automatic Baseline Correction as in winter in the UK it's quite possible
+#   the room won't get enough airflow to hit 400PPM in a 24hr window, so ABC would then mean 
+#   bad readings. Instead, the sensor will need manually calibrating periodically.
+print("Disabling Automatic Baseline Correction", flush=True)
+mh_z19.abc_off(True)
+
+# Start API
 api = falcon.API()
 api.add_route("/sensors", Sensors())
