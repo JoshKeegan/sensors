@@ -9,4 +9,4 @@ RUN apt-get update && \
 
 RUN pip install falcon gunicorn mh-z19
 
-CMD gunicorn -b 0.0.0.0:8080 server:api
+CMD gunicorn -b 0.0.0.0:80 server:api
