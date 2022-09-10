@@ -25,6 +25,7 @@ Notes: tempC is of unknown accuracy. The MHZ19C sensor needs to know the tempera
 
 ## Developing
  - Make your changes
+ - Set up `docker buildx` (comes pre-installed with docker desktop) & then create a builder instance for cross-platform builds with `docker buildx create --use`
  - Run `make publish` to build & publish new docker containers
  - On the Pi, run `./update.sh` from the `deploy` directory to deploy it
 
